@@ -1,0 +1,10 @@
+clang -Wall -dynamiclib -o flip.dylib flip_bufs.c -framework IOKit  -arch arm64 -F /System/Library/PrivateFrameworks/ -framework IOAccelerator -framework IOGPU
+export DYLD_INSERT_LIBRARIES=./flip.dylib
+
+#Running
+../../apps/MetalBitonicSort/MetalBitonicSort
+
+#Description
+This sometimes would display parts of other windows, or certain areas
+(title bar, menu bar) would flash purple, when running this purely
+compute, non-graphic app
